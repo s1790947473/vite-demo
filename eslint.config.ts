@@ -1,0 +1,38 @@
+import js from '@eslint/js' // 检验js规范
+import globals from 'globals'
+import tseslint from 'typescript-eslint' // ts规范
+import pluginVue from 'eslint-plugin-vue' // vue的规范
+import { defineConfig } from 'eslint/config'
+import prettierRecommended from 'eslint-plugin-prettier/recommended' // 将prettier的格式化结果作为eslint警告输出
+
+export default defineConfig([
+  {
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,vue}'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.node }
+    }
+  },
+  tseslint.configs.recommended,
+  pluginVue.configs['flat/essential'],
+  {
+    files: ['**/*.vue'], // 校验vue中的ts代码
+    languageOptions: {
+      parserOptions: { parser: tseslint.parser }
+    }
+  },
+  // {
+  //   // 不配置eslint检查的文件
+  //   ignores: ['.css', '*.d.ts']
+  // }
+  {
+    // 配置eslint的一些规则，eslint应该只负责语法检查，不管格式化问题
+    rules: {
+      'no-console': 'warn',
+      semi: ['error', 'never']
+      // "vue/script-setup-uses-vars": "error"
+    }
+  },
+  prettierRecommended // 覆盖eslint的规范，主要做格式化
+])
