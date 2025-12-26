@@ -3,5 +3,6 @@ export default {
   singleQuote: true, // 用单引号
   printWidth: 100, // 一行最多 100 个字符
   trailingComma: 'none', // 对象最后一个属性后面不加逗号
-  tabWidth: 2 // 缩进 2 格
+  tabWidth: 2, // 缩进 2 格
+  endOfLine: 'crlf' // windows一般是crlf
 }

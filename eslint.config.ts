@@ -30,7 +30,11 @@ export default defineConfig([
     // 配置eslint的一些规则，eslint应该只负责语法检查，不管格式化问题
     rules: {
       'no-console': 'warn',
-      semi: ['error', 'never']
+      semi: ['error', 'never'],
+      // 'prettier/prettier': 'error',
+      'vue/multi-word-component-names': 'off' // 允许单词组件名
+      // '@typescript-eslint/no-explicit-any': 'warn', // any 类型警告
+      // '@typescript-eslint/no-unused-vars': 'error' // 未使用变量报错
       // "vue/script-setup-uses-vars": "error"
     }
   },
