@@ -25,29 +25,30 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, 'src') // 配置路径别名
     }
-  }
+  },
   // 服务器配置
-  // server: {
-  //   port: 3000,        // 我习惯用 3000 端口，你随意
-  //   open: true,        // 启动自动打开浏览器，省得手动打开
-  //   cors: true,           // 允许跨域
-
-  //   // 代理配置（解决开发环境跨域问题）
-  //   proxy: {
-  //     '/api': {
-  //       target: 'http://localhost:8080',  // 后端服务地址
-  //       changeOrigin: true,
-  //       rewrite: (path) => path.replace(/^\/api/, '')
-  //     }
-  //   }
-  // },
+  server: {
+    watch: {
+      usePolling: true // 解决开发环境下文件变化不及时的问题，轮训模式
+    }
+    // port: 3000, // 我习惯用 3000 端口，你随意
+    // open: true, // 启动自动打开浏览器，省得手动打开
+    // cors: true, // 允许跨域
+    // // 代理配置（解决开发环境跨域问题）
+    // proxy: {
+    //   '/api': {
+    //     target: 'http://localhost:8080', // 后端服务地址
+    //     changeOrigin: true,
+    //     rewrite: (path) => path.replace(/^\/api/, '')
+    //   }
+    // }
+  }
   // 构建配置
   // build: {
   //   outDir: 'dist',                    // 输出目录
   //   sourcemap: false,                  // 不生成 sourcemap
   //   minify: 'terser',                  // 使用 terser 压缩
   //   chunkSizeWarningLimit: 1500,       // chunk 大小警告的限制
-
   //   rollupOptions: {
   //     output: {
   //       // 分包策略

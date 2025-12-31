@@ -10,7 +10,7 @@
     },
 
     /* Linting */
-    "strict": true,
+    "strict": true, // 开启严格数据类型校验模式
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
@@ -19,3 +19,4 @@
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
+

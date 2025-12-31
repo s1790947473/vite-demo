@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import type { RouteRecordRaw } from 'vue-router' // 类型导入
+import type { RouteRecordRaw } from 'vue-router' // 接口类型导入
 // 路由使用非哈希模式，因为哈希模式无法做SEO
 const routes: RouteRecordRaw[] = [
   {

@@ -10,7 +10,7 @@
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": true, // 严格区分ts的值导入、类型导入
     "moduleDetection": "force",
     "noEmit": true,
 
@@ -24,3 +24,4 @@
   },
   "include": ["vite.config.ts"]
 }
+

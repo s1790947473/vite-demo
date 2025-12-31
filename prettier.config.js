@@ -1,4 +1,5 @@
 export default {
+  useTabs: false,
   semi: false, // 不加分号（我个人习惯，你可以改成 true）
   singleQuote: true, // 用单引号
   printWidth: 100, // 一行最多 100 个字符
