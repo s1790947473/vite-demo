@@ -55,7 +55,7 @@ interface Person4 {
   readonly id: number
   name: string
   age?: number
-  [propName: string]: unknown
+  [propName: string]: unknown // 索引签名，定义任意数量的满足类型的属性
 }
 
 const tom4: Person4 = {
@@ -68,6 +68,7 @@ tom4.id = 9527
 console.log(tom, tom1, tom2, tom3, tom4)
 
 // ** 接口常用实践 **
+// 包括prop、pinia
 // 1. 定义组件Props接口
 interface ButtonProps {
   type?: 'primary' | 'secondary' | 'danger'
@@ -78,10 +79,14 @@ interface ButtonProps {
 }
 
 // 在Vue组件中使用
+// PropType：Vue提供的工具类型器，用于将TypeScript类型转换为Vue能理解的prop类型
+// ButtonProps['type']：从ButtonProps接口中提取type属性的类型
+// 整体含义：告诉TypeScript这个prop的类型应该是'primary' | 'secondary' | 'danger'
 export default defineComponent({
   props: {
     type: {
-      type: String as PropType<ButtonProps['type']>,
+      // type: String as PropType<'primary' | 'success'>, 这样写prop.type时会提示只有primary与success两种取值
+      type: String as PropType<ButtonProps['type']>, // ts类型断言，编译时检查以及运行时检查
       default: 'primary'
     },
     size: {
@@ -96,6 +101,15 @@ export default defineComponent({
     // 组件逻辑
   }
 })
+// vue3.3+ 更加简介的写法
+// <script setup lang="ts">
+// interface ButtonProps {
+//   type?: 'primary' | 'secondary' | 'danger'
+//   size?: 'small' | 'medium' | 'large'
+// }
+
+// const props = defineProps<ButtonProps>()
+// </script>
 
 // 2. pinia状态管理
 // 用户状态接口

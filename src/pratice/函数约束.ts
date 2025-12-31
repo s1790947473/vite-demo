@@ -54,7 +54,7 @@ const formatCurrency: StringConverter = (amount, currency) => `${currency}${amou
 type StringConverter1 = (num: number, text: string) => string
 
 // 4. 可选参数，与对象的可选参数类似
-// 可选参数要先判断是否存在，再进行操作，并且要在必选参数之后
+// 可选参数要先判断是否存在，再进行操作，并且要在必选参数之后，ES6会将默认参数自动作为可选参数，就不用限制放在参数列表末尾了
 function sum11(x: number, y?: number) {
   if (y) return x + y
   return x
