@@ -1,3 +1,4 @@
+// @ts-nocheck
 // 数组定义方式很灵活
 const num_list: (number | string | boolean)[] = [1, 2, 3]
 //或另一种写法，泛型约束数组（后面细讲）

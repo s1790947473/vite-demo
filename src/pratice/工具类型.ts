@@ -1,3 +1,4 @@
+// @ts-nocheck
 // 1. Exclude<T, U>：从类型T中排除可以赋值给类型U的所有属性，返回剩余属性的类型。
 type T1 = string | number | boolean
 type T2 = Exclude<T1, number | boolean> // T2 的类型是 string

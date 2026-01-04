@@ -1,0 +1,331 @@
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+// ::-webkit-scrollbar
+// {
+// 	width: 14px;
+// 	height: 14px;
+// 	// background-color: #F5F5F5;
+// }
+
+// /*定义滚动条轨道 内阴影+圆角*/
+// ::-webkit-scrollbar-track
+// {
+// 	// -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.3);
+// 	background-color: #F5F5F5;
+// }
+// /*定义滑块 内阴影+圆角*/
+// ::-webkit-scrollbar-thumb
+// {
+// 	border-radius: 3px;
+// 	background-color: #d8e0e9;
+// }
+
+/** tab内表格可能出现...的bug，可加这个样式解决 */
+.tl-tab-table {
+  v-deep  .el-table__fixed {
+    height: 100% !important; //设置高优先，以覆盖内联样式
+  }
+  thead th {
+    text-align: center;
+    background-color: #f6f6f6;
+    color: black;
+    font-weight: bold;
+    span.caret-wrapper {
+      position: absolute;
+      right: 4px;
+    }
+  }
+  .el-table-column--selection {
+    text-align: center;
+    width: 55px;
+  }
+}
+.el-table-column--selection .cell{
+  padding-left: 10px;
+      padding-right: 10px;
+}
+
+/** 表格表头样式 */
+
+.el-table th.tl-table-header-cell {
+  background-color: #fafafa;
+  color: black;
+  font-weight: bold;
+}
+
+/** 表格多选行选中样式 */
+
+.el-table tr.tl-table-mulrow-selected {
+  background-color: #e6f6f9;
+}
+
+/** 表格选中提示信息 */
+.table-alert-div {
+  .el-alert__title {
+    font-size: 10px;
+  }
+  .tl-table-alert-info {
+    margin-bottom: 10px;
+    background-color: #e6f7ff !important;
+    color: rgba(0, 0, 0, 0.65) !important;
+    border: 1px solid #91d5ff;
+    font-size: 10px;
+    .tl-table-alert-info-a1 {
+      font-weight: bold;
+    }
+    .tl-table-alert-info-a2 {
+      margin-left: 24px;
+      color: #2b85e4;
+    }
+  }
+}
+
+.tl-alert-info {
+  background-color: #e6f7ff !important;
+  margin-bottom: 10px;
+  .el-alert__description {
+    font-size: 10px;
+  }
+}
+.tl-tip {
+  border-left: 5px solid $commonColor;
+  padding: 8px 16px;
+  background-color: #ecf8ff;
+  border-radius: 4px;
+}
+
+// reset css,modified by tom
+.tl-left-tree {
+  padding-right: 20px;
+  .el-input {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.tl-form {
+  .el-form-item {
+    .el-select {
+      width: 100%;
+    }
+    .el-date-editor {
+      width: 100%;
+    }
+  }
+}
+
+.tl-tree {
+  .el-icon-caret-right:before {
+    font-size:16px;
+  }
+  .is-leaf.el-icon-caret-right:before {
+    content: "\e7b3";
+    font-size: 12px;
+  }
+  .el-tree-node__content {
+    position: relative;
+    height: 32px;
+  }
+  .el-tree-node__expand-icon,
+  .el-tree-node__expand-icon.is-leaf {
+    color: #666;
+  }
+  .el-checkbox:last-of-type {
+    padding-right: 6px;
+  }
+}
+.role-module-tree {
+  .el-tree-node__content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    border-bottom: 1px solid #f9f9f9;
+    height: auto;
+    min-height: 32px;
+  }
+}
+
+.tl-ref {
+  .scroll-category {
+    height: 250px;
+    overflow-x: hidden;
+    .el-scrollbar__wrap {
+      overflow-x: hidden;
+    }
+  }
+  .top-category > .el-col-10,
+  .top-category > .el-col-9 {
+    border-right: 1px solid #e8e8e8;
+  }
+  .top-category > .el-col {
+    padding: 0 10px;
+  }
+  .bottom-selected {
+    border-top: 1px solid #e8e8e8;
+    margin-top: 0px;
+    padding-top: 0px;
+    h2 {
+      font-weight: normal;
+    }
+    .selected-control {
+      text-align: right;
+      .btn-clear {
+        color: #f56c6c;
+        margin-top: 11px;
+      }
+    }
+  }
+  .scroll-selected {
+    height: 70px;
+    overflow-x: hidden;
+    .el-scrollbar__wrap {
+      overflow-x: hidden;
+    }
+    h2 {
+      margin: 8px 0;
+      font-size: 18px;
+    }
+  }
+  p.no-info {
+    text-align: center;
+    color: #aaa;
+    padding: 20px;
+  }
+}
+
+.tl-ref-selector {
+  .el-input-group__append {
+    background-color: $commonColor;
+    border: 1px solid $commonColor;
+    color: white;
+  }
+  &.disabled .el-input-group__append {
+    background-color: #f5f7fa;
+    color: #909399;
+    border: 1px solid #dcdfe6;
+  }
+}
+
+.tl-table-pagination {
+  text-align: right;
+  margin-top: 10px;
+  &.el-pagination.is-background {
+    .el-pager li {
+      background: transparent;
+      color: #606266;
+      &:not(.disabled).active {
+        background: #E5F6F9;
+        color: #00A8C3;
+      }
+      &:not(.active) {
+        font-weight: 300;
+      }
+    }
+    .btn-next {
+      background: #f7f7f8;
+    }
+  }
+}
+
+.tl-drawer-bootom-button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #e8e8e8;
+  padding: 10px 16px;
+  text-align: right;
+  left: 0;
+  background: #fff;
+  border-radius: 0 0 2px 2px;
+}
+
+.tl-tool-button-row {
+  margin-bottom: 5px;
+}
+
+.tl-search-form {
+  margin-bottom: 0px;
+  // .el-form-item__content {
+  //   float: left;
+  // }
+}
+
+.tl-search-form > .el-form-item {
+  margin-bottom: 10px;
+}
+
+// .tl-search-form label:after {
+//   content: ":";
+//   margin: 0 6px 0 2px;
+//   position: relative;
+//   left: 0px;
+//   top: 0px;
+// }
+
+.tl-tool-button-row {
+  margin-bottom: 10px;
+}
+
+.el-form label {
+  font-weight: normal;
+}
+
+.tl-dialog,
+.el-dialog {
+  border-radius: 8px;
+  .el-dialog__header {
+    border-radius: 8px 8px 0 0;
+  }
+  .el-dialog__header, .el-drawer__header {
+    background: #F5F8FA;
+    border: none;
+  }
+}
+
+.l-tool-button-row {
+  padding-bottom: 10px;
+}
+
+.tl-ref-input .el-input__inner {
+  background-color: #e7f5f8;
+}
+
+.app-breadcrumb.el-breadcrumb {
+  .el-breadcrumb__separator {
+    color: white;
+  }
+}
+
+/** 打印表格相关 */
+#printForm {
+  word-break: break-word;
+  margin:0px;
+  overflow: hidden; /* 解决打印多页问题 */
+}
+.print-table {
+  width: 100%;
+  font-size: 20px;
+  border-top: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+}
+.print-table tr {
+  height: 40px;
+}
+.print-table td {
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 4px 10px;
+}
+.print-table .label {
+  background-color: #969ab80d;
+  width: 240px;
+}
+.print-table .label2{
+  background-color: #969ab80d;
+  width: 80px;
+  text-align: center;
+}
+.print-footer {
+  margin-top: 30px;
+}

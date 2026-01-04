@@ -22,7 +22,7 @@
   // 包含的文件
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.js"],
   // files：精确指定要编译的文件
-  "exclude": ["src/pratice", "**/*.spec.ts"] // 排除的文件
+  "exclude": ["src/pratice"] // 排除的文件
 }
 
 /* 常用编译选项

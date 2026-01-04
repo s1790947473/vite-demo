@@ -1,0 +1,341 @@
+// :root{ scss语法定义的自定义属性，需要先定义好变量sideBarWidth等，此后，在其他scss文件中可以用var(--sidebar-width)等
+//   --sidebar-width:#{$sideBarWidth};
+//   --navbar-height:#{$navBarHeight};
+//   --tagsview-height:#{$tagsViewHeight};
+// }
+
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("~@/fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Nunito-Regular";
+  src: url("~@/fonts/Nunito-Regular.ttf");
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family:
+    'Nunito-Regular',
+    Helvetica Neue,
+    Helvetica,
+    PingFang SC,
+    Hiragino Sans GB,
+    Microsoft YaHei,
+    Arial,
+    sans-serif;
+  font-size: 12px;
+}
+
+label {
+  font-weight: 700;
+  word-break: keep-all;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+ol, ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+.warn-content {
+  background: rgba(66, 185, 131, 0.1);
+  border-radius: 2px;
+  padding: 16px;
+  padding: 1rem;
+  line-height: 1.6rem;
+  word-spacing: 0.05rem;
+  a {
+    color: #42b983;
+    font-weight: 600;
+  }
+}
+
+//main-container全局样式
+.app-main {
+  min-height: 100%;
+}
+.app-container {
+  min-height: calc(100vh - 90px);
+  padding: 10px 20px;
+  // margin: 5px;
+  margin-bottom: 0;
+  background: white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  v-deep .el-form-item__content {
+    .el-input__inner {
+      border: none;
+      background: #F5F8FA;
+    }
+  }
+  v-deep .el-form-item__label {
+    width: 150px !important;
+  }
+  
+  v-deep .el-form-item__content {
+    .el-select, .el-input {
+      width: 180px !important;
+    }
+  }
+}
+
+.head-container {
+  // margin: 5px 0;
+  .filter-item {
+    display: inline-block;
+    vertical-align: middle;
+    // margin-bottom: 10px;
+  }
+  input {
+    height: 30.5px;
+    line-height: 30.5px;
+  }
+  // .el-input__icon {
+  //     line-height: 31px;
+  // }
+}
+@for $i from 0 through 15 {
+  .m-t-#{$i * 2} {
+    margin-top: (2px * $i) !important;
+  }
+}
+@for $i from 0 through 15 {
+  .m-b-#{$i * 2} {
+    margin-bottom: (2px * $i) !important;
+  }
+}
+@for $i from 0 through 15 {
+  .m-l-#{$i * 2} {
+    margin-left: (2px * $i) !important;
+  }
+}
+@for $i from 0 through 15 {
+  .m-r-#{$i * 2} {
+    margin-right: (2px * $i) !important;
+  }
+}
+@for $i from 0 through 15 {
+  .p-l-#{$i * 2} {
+    padding-left: (2px * $i) !important;
+  }
+}
+@for $i from 0 through 15 {
+  .p-r-#{$i * 2} {
+    padding-right: (2px * $i) !important;
+  }
+}
+@for $i from 0 through 15 {
+  .p-t-#{$i * 2} {
+    padding-top: (2px * $i) !important;
+  }
+}
+@for $i from 0 through 15 {
+  .p-b-#{$i * 2} {
+    padding-bottom: (2px * $i) !important;
+  }
+}
+@for $i from 12 through 35 {
+  .f-#{$i} {
+    font-size: (1px * $i) !important;
+  }
+}
+
+@for $i from 8 through 35 {
+  .w-#{$i*10} {
+    width: (10px * $i) !important;
+  }
+}
+// 文字对齐方式
+.text-c {
+  text-align: center;
+}
+.text-l {
+  text-align: left;
+}
+.text-r {
+  text-align: right;
+}
+.font-bold {
+  font-weight: bold;
+  text-align: center;
+}
+// 浮动
+.f-l {
+  float: left;
+}
+.f-r {
+  float: right;
+}
+.f-c {
+  clear: both;
+}
+// 全局文本颜色
+.blueColor {
+  color: $blue;
+}
+.redColor {
+  color: $red;
+}
+.greenColor {
+  color: $green;
+}
+.yellowColor {
+  color: $yellow;
+}
+.blackColor {
+  color: $black;
+}
+.purpleColor {
+  color: $purple;
+}
+.greyColor {
+  color: #c0c4cc;
+}
+.commonColor {
+  color: $commonColor;
+}
+.tl-a {
+  cursor: pointer;
+  color: $commonColor;
+  &:hover {
+    color: $commonColorHover;
+  }
+}
+
+.cursor {
+  cursor: pointer;
+}
+.center {
+  text-align: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.flex-space {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-bwn-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.data-count {
+  font-size: 14px;
+  color: $commonColor;
+  font-weight: bold;
+  &.min {
+    color: $yellow;
+  }
+  &.re {
+    color: #67c23a;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #ced2d3;
+  transition: all 0.2s;
+}

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // 1. 面向对象特性
 class Person {
   name: string

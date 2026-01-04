@@ -1,3 +1,4 @@
+// @ts-nocheck
 // 类型别名
 // 可以为类型起一个新的名字，方便使用
 type name = string

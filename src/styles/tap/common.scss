@@ -1,0 +1,18 @@
+/* src/styles/tap/common.scss */
+
+/* 1. 核心配置：必须最先引入！让后续文件能用 $blue, @include 等 */
+@import './variables.scss';
+@import './mixin.scss';
+
+/* 2. 基础与过渡动画 */
+@import './transition.scss';
+
+/* 3. 第三方库覆写 (通常依赖变量) */
+@import './element-ui.scss';
+
+/* 4. 全局样式*/
+@import './index.scss';
+
+/* 5. 业务模块样式 */
+@import './sidebar.scss';
+@import './techen.scss';

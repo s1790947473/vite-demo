@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* 
 相同：
 1. type与interface都可以定义对象、函数

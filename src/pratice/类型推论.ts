@@ -1,3 +1,4 @@
+// @ts-nocheck
 // 基础类型推论
 // 1.未明确指定类型时，会根据类型推论规则来判断出类型
 let myFavoriteNumber = 'seven'

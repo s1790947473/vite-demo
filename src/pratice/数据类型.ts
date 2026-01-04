@@ -1,3 +1,4 @@
+// @ts-nocheck
 const isDone: boolean = false
 const createdElemenmt: boolean = new Boolean(1) // new构造函数创建的对象是包装的（对象），不是原始值
 const createdByBoolean: boolean = Boolean(1) // 直接调用 Boolean 函数返回的是原始值（boolean）

@@ -1,0 +1,266 @@
+ //to reset element-ui default css
+.el-upload {
+  input[type="file"] {
+    display: none !important;
+  }
+}
+
+.el-upload__input {
+  display: none;
+}
+
+//暂时性解决diolag 问题 https://github.com/ElemeFE/element/issues/2461
+.el-dialog {
+  transform: none;
+  left: 0;
+  position: relative;
+  margin: 0 auto;
+}
+
+//element ui upload
+.upload-container {
+  .el-upload {
+    width: 100%;
+    .el-upload-dragger {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}
+
+/** 修改table单元格行高样式 */
+.el-popper[x-placement^=bottom] {
+  margin-top: 0px !important;
+}
+
+.el-table--mini td {
+  padding: 2px 0px !important;
+}
+.el-table--mini th {
+  padding: 4px 0px;
+}
+.el-tree-node__label {
+  font-size: 12px !important;
+}
+
+.tl-table {
+  thead th {
+    text-align: center !important;
+    background-color: #F5F8FA !important;
+    color: black;
+    font-weight: bold;
+    span.caret-wrapper {
+      position: absolute;
+      right: 4px;
+    }
+  }
+  .el-table-column--selection {
+    text-align: center;
+    width: 55px;
+  }
+}
+
+.el-dialog__header, .el-drawer__header{
+  background: #f6f6f6;
+}
+.el-table .cell{
+  line-height: 30px;
+}
+/* 为解决表格出现纵向滚动条时表格内容跟表头竖线错位 */
+body .el-table th.gutter{
+  display: table-cell!important;
+}
+body .el-table colgroup.gutter{
+  display: table-cell!important;
+}
+.el-form-item__label{
+  font-size:12px;
+}
+.el-radio__label,.el-checkbox__label{
+  font-size:12px;
+}
+.el-dialog__body {
+  padding: 10px 20px;
+  color: #606266;
+  font-size: 12px;
+}
+
+.el-avatar {
+  display: inline-block;
+  text-align: center;
+  background: #ccc;
+  color: #fff;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 16px;
+}
+.el-form-item__content{
+  font-size:12px;
+}
+.el-tabs__item{
+  font-size:12px;
+}
+.el-button--mini{
+  padding: 7px 10px;
+}
+.el-dialog__header{
+  padding: 15px 20px;
+  padding-bottom: 10px;
+  .el-dialog__title {
+    line-height: 14px;
+    font-size: 14px;
+    color: #303133;
+  }
+  .el-dialog__headerbtn{
+    top: 13px;
+  }
+}
+.el-button--mini{
+  .iconfont{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: baseline;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+.el-button .iconfont + span {
+  margin-left: 5px;
+}
+.el-table {
+  .el-table__fixed {
+    height: auto !important;
+    bottom: 14px;
+  }
+}
+.el-table th > .cell{
+  word-break:break-word;
+}
+// 修复动态表格高度计算错误的临时方案---会引发新的问题，如跟fix列表头高度不一致等
+// .el-table__header-wrapper {
+//   height: 48px;
+// }
+
+.el-divider__text{
+  font-size: 12px;
+}
+.el-popover{
+  font-size: 12px;
+}
+.el-drawer__header :focus{
+  outline:0;
+}
+.el-drawer__header{
+  padding: 15px 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.el-drawer__body{
+  padding: 15px;
+}
+.el-tooltip__popper{
+  max-width: 600px;
+}
+.el-card__body{
+  padding: 15px;
+}
+.el-input__inner{
+  padding: 0 10px;
+}
+.el-input--suffix .el-input__inner{
+  padding-right: 25px;
+}
+/* 时间选择区域,sidebar宽度增加 */
+.el-picker-panel__sidebar {
+  width: 120px;
+}
+.tl-table{
+  .el-button--text{
+    padding: 6px;
+    background-color: #F5F8FA;
+    .iconfont {
+      color: #a2a6ae;
+    }
+    i[class^='el-icon'] {
+      color: #a2a6ae;
+    }
+    &.is-disabled {
+      .iconfont {
+        color: #DEDEDE;
+      }
+      i[class^='el-icon'] {
+        color: #DEDEDE;
+      }
+    }
+    &:hover {
+      background-color: rgba($color: $commonColor, $alpha: 0.1);
+      i {
+        color: $commonColor;
+      }
+    }
+  }
+  .el-button + .el-button{
+    margin-left: 5px;
+  }
+  .totalTr{
+    background-color: #f6f6f6;
+    font-weight: 800;
+  }
+  .redTr{
+    color: $red;
+  }
+  .el-progress__text{
+    font-size: 12px !important;
+  }
+}
+.el-table__fixed-right{
+  .el-table__row{
+    td:not(.is-hidden):last-child{
+      right:-1px;
+      border-right: 2px solid #EBEEF5;
+    }
+  }
+}
+
+.selectedNodeName{
+  color: $commonColor;
+  v-deep .el-input__inner{
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: $commonColor !important;
+    border-bottom: 1px solid $commonColor !important;
+    border-radius: 0;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+  }
+}
+
+.commonColorTooltip.el-tooltip__popper[x-placement^="right"] .popper__arrow {
+  border-right-color: $commonColor;
+}
+.commonColorTooltip.el-tooltip__popper[x-placement^="right"] .popper__arrow:after {
+  border-right-color: $commonColor;
+}
+.commonColorTooltip {
+  background: $commonColor !important;
+}
+
+.noRedStar.el-form-item.is-required:not(.is-no-asterisk) > .el-form-item__label:before, .noRedStar.el-form-item.is-required:not(.is-no-asterisk) .el-form-item__label-wrap > .el-form-item__label:before {
+  content: none;
+}
+.el-button.el-picker-panel__link-btn.el-button--text.el-button--mini.cancel-now {
+  display: none;
+}
+.el-popover.popoverStyle{
+  padding: 0px !important;
+}

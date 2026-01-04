@@ -22,10 +22,10 @@ export default defineConfig([
       parserOptions: { parser: tseslint.parser }
     }
   },
-  // {
-  //   // 不配置eslint检查的文件
-  //   ignores: ['.css', '*.d.ts']
-  // }
+  {
+    // 不配置eslint检查的文件
+    ignores: ['src/pratice/**/*']
+  },
   {
     // 配置eslint的一些规则，eslint应该只负责语法检查，不管格式化问题
     rules: {
@@ -39,4 +39,5 @@ export default defineConfig([
     }
   },
   prettierRecommended // 覆盖eslint的规范，主要做格式化
+  // ignorePatterns: ['src/pratice/**/*', 'dist/**/*']
 ])

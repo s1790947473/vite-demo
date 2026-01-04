@@ -1,3 +1,4 @@
+// @ts-nocheck
 // 在定义函数、接口或类的时候，不预先指定具体的类型，先作为占位符，使用时候再指定类型
 function createArray(length: number, value: unknown): Array<unknown> {
   const result = []

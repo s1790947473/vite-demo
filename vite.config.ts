@@ -4,11 +4,15 @@ import path from 'path' //导入 node.js path
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import UnoCSS from 'unocss/vite' // 导入 UnoCSS 插件
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
+    UnoCSS({
+      configFile: './uno.config.ts' // 配置文件路径
+    }),
     // 自动导入 Vue API
     AutoImport({
       imports: ['vue', 'vue-router', 'pinia'],
@@ -24,6 +28,15 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src') // 配置路径别名
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // 屏蔽 'import' 相关的弃用警告
+        // 也可以加上 'legacy-js-api' 以防万一
+        silenceDeprecations: ['import', 'legacy-js-api']
+      }
     }
   },
   // 服务器配置
