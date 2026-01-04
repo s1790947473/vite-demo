@@ -1,4 +1,4 @@
-// 在定义函数、接口或类的时候，不预先指定具体的类型，使用时候再指定类型
+// 在定义函数、接口或类的时候，不预先指定具体的类型，先作为占位符，使用时候再指定类型
 function createArray(length: number, value: unknown): Array<unknown> {
   const result = []
   for (let i = 0; i < length; i++) {
@@ -8,7 +8,7 @@ function createArray(length: number, value: unknown): Array<unknown> {
 }
 createArray(3, 'x') // ['x', 'x', 'x']
 // 以上代码没有准确的定义返回值的类型，正常逻辑数组每一项都应该是输入的value的类型
-// 可以使用泛型约束来解决这个问题
+// 1. 泛型函数，可以使用泛型约束来解决这个问题
 function createArray2<T>(length: number, value: T): Array<T> {
   const result: T[] = []
   for (let i = 0; i < length; i++) {
@@ -57,6 +57,26 @@ function copyFields<T extends U, U>(target: T, source: U): T {
 const x = { a: 1, b: 2, c: 3, d: 4 }
 copyFields(x, { b: 10, d: 20 })
 
+// 泛型接口，实现接口更加灵活
+interface KeyValuePair<T, U> {
+  key: T
+  value: U
+}
+
+const numberPair: KeyValuePair<number, string> = {
+  key: 100,
+  value: 'hundred'
+}
+console.log(numberPair)
+
+// 泛型默认参数，
+// 当调用函数时没有指定泛型参数，TS会自动推断类型
+// 可以在定义接口或类时，为泛型参数指定默认类型
+interface KeyValuePair<T = number, U = string> {
+  key: T
+  value: U
+}
+
 // 2. 泛型例子
 // 一个函数可以处理多种类型
 function processValue<T>(value: T): T {
@@ -95,4 +115,51 @@ function createMultiArray<T, U>(length: number, value1: T, value2: U): [T, U][] 
 }
 
 const result = createMultiArray(2, 'hello', 42)
+console.log(result)
 // result: [string, number][] = [['hello', 42], ['hello', 42]]
+
+// 3.3 条件类型：根据类型判断返回不同类型
+type isString<T> = T extends string ? true : false
+type I0 = isString<number> // false
+type I1 = isString<'abc'> // true
+
+// 定义实际变量
+const myI0: I0 = false // ✅ 正确：I0类型是false
+const myI1: I1 = true // ✅ 正确：I1类型是true
+// ❌ 错误示例
+// const errorI0: I0 = true;  // 编译错误：不能将true赋值给false类型
+// const errorI1: I1 = false; // 编译错误：不能将false赋值给true类型
+console.log(myI0, myI1)
+
+// 3.4 映射类型，允许基于现有类型创建新类型，同时对新类型
+type Person1 = {
+  name: string
+  age: number
+  isStu: boolean
+}
+type keys = keyof Person1 // 'name' | 'age' | 'isStu'
+type Stringfy<T> = {
+  [P in keys]: string
+}
+type Person1Stringified = Stringfy<Person1>
+const p: Person1Stringified = {
+  name: 'Jack',
+  age: '18',
+  isStu: 'true'
+}
+
+// ⭐Partial操作符，将Partial<T>中的所有属性都设置为可选
+type PartialP = Partial<Person1>
+// { name?: string; age?: number; isStudent?: boolean;};
+const p1: PartialP = {}
+
+// ⭐Readonly操作符，将Readonly<T>中的所有属性都设置为只读
+type ReadonlyP = Readonly<Person1>
+// { readonly name: string; readonly age: number; readonly isStudent: boolean;}
+const p2: ReadonlyP = {
+  name: 'Jack',
+  age: 18,
+  isStu: true
+}
+
+console.log(p, p1, p2)

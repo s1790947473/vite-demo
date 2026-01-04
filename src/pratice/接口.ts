@@ -113,6 +113,7 @@ export default defineComponent({
 
 // 2. pinia状态管理
 // 用户状态接口
+type User = string
 interface UserState {
   user: User | null
   token: string | null
