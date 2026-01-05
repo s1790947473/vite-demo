@@ -4,6 +4,11 @@ import tseslint from 'typescript-eslint' // ts规范
 import pluginVue from 'eslint-plugin-vue' // vue的规范
 import { defineConfig } from 'eslint/config'
 import prettierRecommended from 'eslint-plugin-prettier/recommended' // 将prettier的格式化结果作为eslint警告输出
+// 加载json的三种方式：1.with 2.创建require 3.fs.readFile
+// import autoImport from './.eslintrc-auto-import.json' with { type: 'json' } // eslint中配置自动导入，json文件要通过with导入，但是不推荐这种写法
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url)
+const autoImport = require('./.eslintrc-auto-import.json') // 推荐这种导入语法
 
 export default defineConfig([
   {
@@ -11,7 +16,11 @@ export default defineConfig([
     plugins: { js },
     extends: ['js/recommended'],
     languageOptions: {
-      globals: { ...globals.browser, ...globals.node }
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...autoImport.globals
+      }
     }
   },
   tseslint.configs.recommended,

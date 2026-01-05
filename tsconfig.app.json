@@ -4,7 +4,7 @@
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     // 显示类型提示的组件，编写时会有类型提示，更加方便
-    "types": ["vite/client", "element-plus/global"],
+    "types": ["vite/client", "element-plus/global"], // "./auto-imports.d.ts", "./components.d.ts" 如果ts仍然无法识别自动导入，可能需要添加类型声明文件
     // 配置路径别名，和 vite.config.ts 里保持一致
     "baseUrl": ".",
     "paths": {
@@ -19,8 +19,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  // 包含的文件
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.js"],
+  // 这是类型声明文件，需要被包含在编译中，可以有类型提示
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.js", "components.d.ts"],
   // files：精确指定要编译的文件
   "exclude": ["src/pratice"] // 排除的文件
 }

@@ -12,6 +12,18 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'dashboard',
         component: import('@/views/dashboard/index.vue') // 主要路由，同步加载
+      },
+      {
+        path: '/lab/layout',
+        component: () => import('@/views/lab/layoutDemo.vue')
+      },
+      {
+        path: '/lab/form',
+        component: () => import('@/views/lab/formDemo.vue')
+      },
+      {
+        path: '/lab/table',
+        component: () => import('@/views/lab/tableDemo.vue')
       }
     ]
   }
