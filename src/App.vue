@@ -3,7 +3,11 @@
   <RouterLink to="/about">关于</RouterLink> -->
   <!-- <el-button @click="counterStore.increment">增加</el-button>
   : {{ counterStore.count }} -->
-  <router-view></router-view>
+  <n-config-provider>
+    <n-message-provider>
+      <router-view />
+    </n-message-provider>
+  </n-config-provider>
 </template>
 
 <script setup lang="ts">

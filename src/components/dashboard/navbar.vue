@@ -16,7 +16,9 @@
       :collapsed-width="64"
       :collapsed-icon-size="22"
       :value="activeKey"
+      :expanded-keys="expandedKeys"
       @update:value="handleMenuUpdate"
+      @update:expanded-keys="expandedKeys = $event"
     />
     <!-- </n-layout-sider> -->
   </n-layout>
@@ -28,6 +30,7 @@ import { menuOptions } from './menu'
 
 const route = useRoute()
 const router = useRouter()
+const expandedKeys = ref<string[]>([])
 
 // 高亮跟随当前路由
 const activeKey = computed(() => route.path)
