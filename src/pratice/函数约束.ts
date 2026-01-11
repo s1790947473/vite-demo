@@ -24,6 +24,12 @@ const sum4: (params1: number, params2: string) => string = (a: number, b: string
 const sum5 = function (a, b) {
   return a + b
 }
+// 这种写法看着很长，但是将函数赋值给变量的方法更好，可以如下简写
+type isSum = (x: string, y: string) => string
+const sum41: isSum = (a, b) => {
+  return a + b
+}
+
 
 // 3. 主要应用场景
 // 3.1 函数作为参数
@@ -89,6 +95,20 @@ const processor: DataProcessor = (data, options) => {
 }
 // 直接调用
 processor('hello', { uppercase: true })
+
+
+
+// 7. 函数重载
+// ts的函数重载是类型重载，不是功能重载
+// 写法上必须连续，不能隔行
+function toArray(value: number): number[]
+function toArray(value: string): string[]
+function toArray(value:number | string): string[] |number[] {
+  if (typeof value === 'string') {
+    return value.split('')
+  }
+  return value.toString().split('').map(Number)
+}
 
 console.log(
   sum1(1, 2),

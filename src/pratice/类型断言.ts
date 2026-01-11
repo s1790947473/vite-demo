@@ -86,3 +86,9 @@ interface Cat {
 const tom = getCacheData<Cat>('tom')
 tom.run()
 // getCacheData 函数添加了一个泛型 <T>，可以更规范的实现对 getCacheData 返回值的约束，同时去除了代码中的 any，最优的解决方案
+
+// 6.非空断言
+let ele = document.getElementById('app')
+ele!.style.background = "red" // ele可能是HTMLElement、null，非空断言用于告诉ts他不为空
+(<HTMLElement>ele).style.background = 'red' // 不推荐
+

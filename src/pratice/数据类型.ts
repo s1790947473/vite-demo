@@ -18,7 +18,7 @@ const myName: string = '张三'
 const myAge: number = 18
 const sentence: string = `我是${myName}，我今年${myAge}岁`
 
-// 空值：void，使用 void 类型表示没有任何返回值的函数
+// 空值：void，使用 void 类型表示不关心返回的类型是什么,而没有任何返回值的函数，即便函数是void，也可以写return
 function alertName(): void {
   alert('My name is Tom')
 }
@@ -61,6 +61,8 @@ const data: unknown = JSON.parse('asd')
 if (typeof data === 'object' && data !== null && 'name' in data) {
   console.log(data.name)
 }
+
+// 子类型，null、undefined是任何类型的子类型，所以可以将null、undefined赋值给任何类型，但是TS默认是严格类型检查，因此会提示不允许赋值（但是是可以的）
 
 console.log(
   isDone,
