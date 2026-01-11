@@ -17,9 +17,17 @@ const routes: RouteRecordRaw[] = [
         path: '/lab/layout',
         component: () => import('@/views/lab/layoutDemo.vue')
       },
+      // 表单
       {
         path: '/lab/form',
-        component: () => import('@/views/lab/formDemo.vue')
+        component: () => import('@/views/lab/formDemo.vue'),
+        children: [
+          // 异常值警告
+          {
+            path: 'errWarn',
+            component: () => import('@/views/lab/forms/errWarn.vue')
+          }
+        ]
       },
       {
         path: '/lab/table',
